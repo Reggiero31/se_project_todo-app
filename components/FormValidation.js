@@ -1,4 +1,4 @@
-class FormValidatior {
+class  FormValidator {
   constructor(settings, formEl) {
     this._inputSelector = settings.inputSelector;
     this._formSelector = settings.formSelector;
@@ -51,8 +51,8 @@ class FormValidatior {
     this._formEl.addEventListener("submit", (evt) => {
       evt.preventDefault();
     });
-    this._setEventListeners(formElement, settings);
+    this.setEventListeners();
   }
 }
 
-export default FormValidatior;
+export default FormValidator;

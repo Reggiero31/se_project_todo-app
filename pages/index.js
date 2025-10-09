@@ -2,7 +2,7 @@ import { v4 as uuidv4 } from "https://jspm.dev/uuid";
 console.log(uuidv4());
 import { initialTodos, validationConfig } from "../utils/constants.js";
 import Todo from "../components/Todo.js";
-import FormValidator from "../components/FormValidator.js";
+import FormValidator from "../components/FormValidation.js";
 
 const addTodoButton = document.querySelector(".button_action_add");
 const addTodoPopup = document.querySelector("#add-todo-popup");
@@ -21,8 +21,8 @@ const closeModal = (modal) => {
 
 // The logic in this function should all be handled in the Todo class.
 const generateTodo = (data) => {
-  const Todo = new Todo(data, "#todo-template");
-  const todoElement = todo.getview();
+  const todoItem = new Todo(data, "#todo-template");
+  const todoElement = Todo.getView();
   return todoElement;
 
   //To be removed:
@@ -88,5 +88,5 @@ initialTodos.forEach((item) => {
   todosList.append(todo);
 });
 
-const newTodoValidator = new FormValidator(validationConfig, addTodoButton);
+const newTodoValidator = new FormValidator(validationConfig, addTodoForm);
 newTodoValidator.enableValidation();
