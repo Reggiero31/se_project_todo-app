@@ -1,5 +1,5 @@
 import { v4 as uuidv4 } from "https://jspm.dev/uuid";
-console.log(uuidv4());
+(uuidv4());
 import { initialTodos, validationConfig } from "../utils/constants.js";
 import Todo from "../components/Todo.js";
 import FormValidator from "../components/FormValidation.js";
@@ -8,7 +8,6 @@ const addTodoButton = document.querySelector(".button_action_add");
 const addTodoPopup = document.querySelector("#add-todo-popup");
 const addTodoForm = addTodoPopup.querySelector(".popup__form");
 const addTodoCloseBtn = addTodoPopup.querySelector(".popup__close");
-// const todoTemplate = document.querySelector("#todo-template"); -> remove
 const todosList = document.querySelector(".todos__list");
 
 const openModal = (modal) => {
@@ -19,13 +18,11 @@ const closeModal = (modal) => {
   modal.classList.remove("popup_visible");
 };
 
-// The logic in this function should all be handled in the Todo class.
 const generateTodo = (data) => {
   const todoItem = new Todo(data, "#todo-template");
   const todoElement = Todo.getView();
   return todoElement;
 
-  //To be removed:
   // const todoElement = todoTemplate.content
   // .querySelector(".todo")
   // .cloneNode(true);

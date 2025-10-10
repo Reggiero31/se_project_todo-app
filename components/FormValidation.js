@@ -9,10 +9,8 @@ class  FormValidator {
     this._formEl = formEl;
   }
 
-  // TODO - implement all the other methods
 
   _checkInputValidity(inputElement) {
-    //  (1) TODO - implement this method
     if (!inputElement.validity.valid) {
       showInputError(
         formElement,
@@ -23,7 +21,6 @@ class  FormValidator {
     } else {
       hideInputError(formElement, inputElement, settings);
     }
-    // (b) work through errors in console as we did for enableValidation
   }
 
   setEventListeners() {
@@ -31,18 +28,14 @@ class  FormValidator {
       this._formEl.querySelectorAll(this._inputSelector)
     );
 
-    // (2)TODO finish implementing _setEventListeners
 
-    // const buttonElement = formElement.querySelector(
     //settings.submitButtonSelector
     // );
 
-    //toggleButtonState(inputList, buttonElement, settings);
 
     this._inputList.forEach((inputElement) => {
       inputElement.addEventListener("input", () => {
         this._checkInputValidity(inputElement);
-        // toggleButtonState(inputList, buttonElement, settings);
       });
     });
   }
