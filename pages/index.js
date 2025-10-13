@@ -1,5 +1,4 @@
 import { v4 as uuidv4 } from "https://jspm.dev/uuid";
-(uuidv4());
 import { initialTodos, validationConfig } from "../utils/constants.js";
 import Todo from "../components/Todo.js";
 import FormValidator from "../components/FormValidation.js";
@@ -20,9 +19,8 @@ const closeModal = (modal) => {
 
 const generateTodo = (data) => {
   const todoItem = new Todo(data, "#todo-template");
-  const todoElement = Todo.getView();
+  const todoElement = todoItem.getView();
   return todoElement;
-
 };
 
 addTodoButton.addEventListener("click", () => {
