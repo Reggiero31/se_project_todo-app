@@ -2,35 +2,43 @@ class Popup {
   constructor({ popupSelector }) {
     this._popupElement = document.querySelector(popupSelector);
     this._popupCloseBtn = this._popupElement.querySelector(".popup__close");
+
+    this._handleEscapeClose = this._handleEscapeClose.bind(this);
+    this._handleOverlayClose = this._handleOverlayClose.bind(this);
   }
 
-  handleEscapeClose() {
-    if (Evt.key === "Escape") {
-      // TODO - call the close method
-    // TODO- how to set a function parementer
+  _handleEscapeClose = (evt) => {
+    if (evt.key === "Escape")
+      this.close();
+    }
+
+  _handleOverlayClose(evt) {
+    if (evt.target === this._popupElement) {
+      this.close();
+
     }
   }
 
   open() {
     this._popupElement.classList.add("popup_visible");
-    document.addEventListener("keyup",  this.handleEscapeClose);
+    document.addEventListener("keyup", this._handleEscapeClose);
   }
 
   close() {
-    // TODO - remove the class from the popup element
-    console.log("close method called");
-    // TODO - remove the escape listener
+    this._popupElement.classList.remove("popup_visible");
+    document.removeEventListener("keyup" , this._handleEscapeClose);
   }
-  setEventListeners() {
-    // this one listener will handler close button and modal listener
-    this._popupCloseBtn.addEventListener("click", () => {
-      this.close();
-    });
 
-    this._popupElement.addEventListener("mousedown", this.close);
-    // if the event targets classList contains "popup__close" or "popup"
-    // then close the modal
+  setEventListeners() {
+    
+    this._popupElement.addEventListener("mousedown", (evt) => {
+      if (
+        evt.target.classList.contains("popup") || 
+        evt.target.classList.contains("popup__close")
+      ){
+        this.close();
+      }
+  });
   }
 }
-
 export default Popup;

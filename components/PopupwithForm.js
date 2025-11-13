@@ -9,7 +9,7 @@ class PopupWithForm extends Popup {
 
   _getInputValues() {
     // move to constructor
-    this._inputList = this._popupForm.querySelectorAll("popup__input");
+    this._inputList = this._popupForm.querySelectorAll(".popup__input");
 
     const values = {};
     this._inputList.forEach((input) => {

@@ -72,7 +72,9 @@ class FormValidator {
   }
   enableValidation() {
     this._formEl.addEventListener("submit", (evt) => {
-      evt.preventDefault();
+      // but before the form behaviour will be blocked, you need to take field values
+
+      evt.preventDefault(); // preventDefault blocks the default behaviour of the form
       this.resetValidation();
     });
     this.setEventListeners();
