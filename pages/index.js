@@ -11,8 +11,12 @@ const addTodoPopupEl = document.querySelector("#add-todo-popup");
 const addTodoForm = addTodoPopupEl.querySelector(".popup__form");
 const addTodoCloseBtn = addTodoPopupEl.querySelector(".popup__close");
 const todosList = document.querySelector(".todos__list");
-
-const todoCounter = TodoCounter(initialTodos, ".counter__text");
+const generateTodo = (data) => {
+  const todoItem = new Todo(data, "#todo-template", handleCheck, handleDelete);
+  const todoElement = todoItem.getView();
+  return todoItem.getView();
+};
+const todoCounter = new TodoCounter(initialTodos, ".counter__text");
 
 const section = new Section({
   items: initialTodos,
@@ -64,12 +68,6 @@ function handleDelete(completed) {
     todoCounter.updateCompleted(false);
   }
 }
-
-const generateTodo = (data) => {
-  const todoItem = new Todo(data, "#todo-template", handleCheck, handleDelete);
-  const todoElement = todoItem.getView();
-  return todoItem.getView();
-};
 
 function handleEscapeClose(evt) {
   if (evt.key === "Escape") {
