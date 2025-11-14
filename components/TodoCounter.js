@@ -23,15 +23,17 @@ class TodoCounter {
     this._updateText();
   };
 
-  // Call the method to update the text content
   _updateText() {
+    if (this._element) {
     this._element.textContent = `Showing ${this._completed} out of ${this._total} completed`;
+    } else {
+      console.warn("TodoCounter");
   }
-
-  _update(total, complete) {
+}
+  _update(total, completed) {
     this.total = total;
-    this._complete = complete;
-    this._update();
+    this._completed = completed;
+    this._updateText();
   }
 }
 
