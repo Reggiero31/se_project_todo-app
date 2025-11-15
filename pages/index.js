@@ -14,7 +14,7 @@ const todosList = document.querySelector(".todos__list");
 const generateTodo = (data) => {
   const todoItem = new Todo(data, "#todo-template", handleCheck, handleDelete);
   const todoElement = todoItem.getView();
-  return todoItem.getView();
+  return todoElement;
 };
 const todoCounter = new TodoCounter(initialTodos, ".counter__text");
 
@@ -42,7 +42,7 @@ const addTodoPopup = new PopupWithForm({
     const todoElement = generateTodo(newTodo);
     section.addItem(todoElement);
 
-    todoCounter.updateTotal(initialTodos.length + 1);
+    todoCounter.updateTotal(true);
 
     addTodoPopup.close();
   },
@@ -66,6 +66,9 @@ function handleCheck(completed) {
 function handleDelete(completed) {
   if (completed) {
     todoCounter.updateCompleted(false);
+    todoCounter.updateTotal(false);
+  } else {
+    todoCounter.updateTotal(false);
   }
 }
 

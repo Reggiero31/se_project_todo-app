@@ -17,6 +17,9 @@ class Todo {
     });
     {
       this._todoCheckboxEl.addEventListener("change", () => {});
+      this._data.complete = this._todoCheckboxEl.checked;
+      this._todoElement.classList.toggle("completed", this._data.completes);
+      this._handleCheck(this._data._completed);
       this._handleDelete(this._completed);
       this._todoCheckboxEl.remove();
     }
@@ -43,9 +46,6 @@ class Todo {
     this._todoCheckboxEl.id = `todo-${this._data.id}`;
     this._todoLabel.setAttribute("for", `todo-${this._data.id}`);
   }
-  _toggleCompleteion = () => {
-    this._completed = !this._completed;
-  };
 
   remove = () => {
     if (this._todoElement) {
