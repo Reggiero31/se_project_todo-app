@@ -64,11 +64,9 @@ function handleCheck(completed) {
 }
 
 function handleDelete(completed) {
-  if (completed) {
+  todoCounter.updateTotal(false);
+  if (completed){
     todoCounter.updateCompleted(false);
-    todoCounter.updateTotal(false);
-  } else {
-    todoCounter.updateTotal(false);
   }
 }
 

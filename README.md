@@ -1,6 +1,8 @@
 todo-app
 
-Give a brief description of the project here. Feel free to give it a different name. Hello my name is Reginald Robinson , I am working on my sprint 7 project which is the todo-app and I enjoy it and I am learning at the sametime. However I am creating a todo app which is like a checklist when you logged in and click the boxes that you want to check it will come up blue. Therefore I have to make sure the function of that app is working properly and everything is aligned with my codes with no buggs in it and I have to test it first before I submitted to my database.
+Hello my name is Reggie Robinson,
+
+Therefore I will explained the project I had been working on which is todo-app project. However with this project I have to make sure that I am taking my time and writing my codes like they wanted me to write a certain code to make it work and my live project show and funtion at the same time. Therefore when it comes to creating a project you have to know what languages you will used for in this project I have used alot of java scripts because that what language they wanted me to used to make my project standout and function. However with todo-app project I also have to make sure that the spelling is right and the checkboxes works when I click on it and delete it after I check it or un check it.
 
 ## Functionality
 
@@ -16,3 +18,10 @@ This project is deployed on GitHub Pages:
 
 - ADD LINK HERE
   https://github.com/Reggiero31/se_project_todo-app
+
+  sprint 8 video todo-app project
+
+  https://www.loom.com/share/310365ef5aba447f8fdc2cc06aebd1f2
+
+sprint 8 Live project
+http://127.0.0.1:5500/

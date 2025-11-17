@@ -6,7 +6,6 @@ class TodoCounter {
     this._updateText();
   }
 
-
   updateCompleted = (increment) => {
     this._completed += increment ? 1 : -1;
     this._updateText();
@@ -20,16 +19,7 @@ class TodoCounter {
   };
 
   _updateText() {
-    if (this._element) {
-      this._element.textContent = `Showing ${this._completed} out of ${this._total} completed`;
-    } else {
-      console.warn("TodoCounter");
-    }
-  }
-  _update(total, completed) {
-    this._total = total;
-    this._completed = completed;
-    this._updateText();
+    this._element.textContent = `Showing ${this._completed} out of ${this._total} completed`;
   }
 }
 

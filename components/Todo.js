@@ -1,5 +1,5 @@
 class Todo {
-  constructor(data, selector, handleCheck, _handleDelete) {
+  constructor(data, selector, handleCheck, handleDelete) {
     this._data = data;
     this._templateElement = document.querySelector(selector);
     this._name = data.name;
@@ -7,42 +7,26 @@ class Todo {
     this._selector = selector;
     this._completed = data.completed;
     this._handleCheck = handleCheck;
-    this._handleDelete = _handleDelete;
+    this._handleDelete = handleDelete;
   }
 
   _setEventListeners() {
     this._todoDeleteBtn.addEventListener("click", () => {
-      this._handleDelete(this);
-      this._todoElement.remove();
-    });
-    {
-      this._todoCheckboxEl.addEventListener("change", () => {});
-      this._data.complete = this._todoCheckboxEl.checked;
-      this._todoElement.classList.toggle("completed", this._data.completes);
-      this._handleCheck(this._data._completed);
       this._handleDelete(this._completed);
-      this._todoCheckboxEl.remove();
-    }
-    this._todoCheckboxEl.addEventListener("change", () => {
-      this._toggleCompleteion();
-      this._data.completed = this._todoCheckboxEl.checked;
-      this._todoElement.classList.toggle("completed", this._data.completed);
-      this._handleCheck(this._completed);
+      this._todoElement.remove();
     });
 
     this._todoCheckboxEl.addEventListener("change", () => {
-      this._data.completed = this._todoCheckboxEl.checked;
-      this._todoElement.classList.toggle("complete", this._data.complete);
-    });
-    this._todoDeleteBtn.addEventListener("click", () => {
-      this._todoElement.remove();
+      this._completed = this._todoCheckboxEl.checked;
+      this._todoElement.classList.toggle("completed", this._completed);
+      this._handleCheck(this._completed);
     });
   }
 
   generateCheckboxEl() {
     this._todoCheckboxEl = this._todoElement.querySelector(".todo__completed");
     this._todoLabel = this._todoElement.querySelector(".todo__label");
-    this._todoCheckboxEl.checked = this._data.completed;
+    this._todoCheckboxEl.checked = this._completed;
     this._todoCheckboxEl.id = `todo-${this._data.id}`;
     this._todoLabel.setAttribute("for", `todo-${this._data.id}`);
   }
