@@ -5,17 +5,19 @@ class PopupWithForm extends Popup {
     super({ popupSelector });
     this._popupForm = this._popupElement.querySelector(".popup__form");
     this._handleFormsubmit = handleFormSubmit;
+    this._inputList = this._popupForm.querySelectorAll(".popup__input");
   }
 
   _getInputValues() {
-    // move to constructor
-    this._inputList = this._popupForm.querySelectorAll(".popup__input");
-
     const values = {};
     this._inputList.forEach((input) => {
       values[input.name] = input.value;
     });
     return values;
+  }
+
+  getForm() {
+    return this._popupForm;
   }
 
   setEventListeners() {
@@ -24,11 +26,12 @@ class PopupWithForm extends Popup {
       evt.preventDefault();
       const inputValues = this._getInputValues();
       this._handleFormsubmit(inputValues);
+      this._popupForm.reset();
+      this.close();
     });
   }
   close() {
     super.close();
-    this._popupForm.reset();
   }
 }
 export default PopupWithForm;

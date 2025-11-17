@@ -8,7 +8,7 @@ import TodoCounter from "../components/TodoCounter.js";
 
 const addTodoButton = document.querySelector(".button_action_add");
 const addTodoPopupEl = document.querySelector("#add-todo-popup");
-const addTodoForm = addTodoPopupEl.querySelector(".popup__form");
+const addTodoForm = document.forms["add-todo-form"];
 const addTodoCloseBtn = addTodoPopupEl.querySelector(".popup__close");
 const todosList = document.querySelector(".todos__list");
 const generateTodo = (data) => {
@@ -56,16 +56,13 @@ const addTodoPopup = new PopupWithForm({
 // modal.classList.add("popup_visible");
 //};
 
-const closeModal = (modal) => {
-  modal.classList.remove("popup_visible");
-};
 function handleCheck(completed) {
   todoCounter.updateCompleted(completed);
 }
 
 function handleDelete(completed) {
   todoCounter.updateTotal(false);
-  if (completed){
+  if (completed) {
     todoCounter.updateCompleted(false);
   }
 }
@@ -84,24 +81,6 @@ addTodoButton.addEventListener("click", () => {
   addTodoPopup.open();
   document.addEventListener("keyup", handleEscapeClose);
 });
-
-// addTodoCloseBtn.addEventListener("click", () => {
-// addTodoPopup.closes();
-//});
-
-//addTodoForm.addEventListener("submit", (evt) => {
-//evt.preventDefault();
-//const name = evt.target.name.value;
-//const dateInput = evt.target.date.value;
-
-//const date = new Date(dateInput);
-// date.setMinutes(date.getMinutes() + date.getTimezoneOffset());
-
-//const id = uuidv4();
-//const values = { name, date, id };
-//const todo = generateTodo(values);
-//todosList.append(todo); // use additem method instead
-//closeModal(addTodoPopupEl);
 
 addTodoPopup.setEventListeners();
 
