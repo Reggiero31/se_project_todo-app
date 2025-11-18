@@ -10,7 +10,9 @@ Give a more detailed explanation of the project and its functionality.
 
 ## Technology
 
-Give a description of the technologies and techniques used. Pictures, GIFs, or screenshots that detail the project features are recommended.
+Therefore this picture show the live project screenshot of it and also the name of the project is called todo-app and it basically do with making a todo page list you can add or delete a step that you have already completed.
+
+![alt text](image.png)
 
 ## Deployment
 

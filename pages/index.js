@@ -67,19 +67,8 @@ function handleDelete(completed) {
   }
 }
 
-function handleEscapeClose(evt) {
-  if (evt.key === "Escape") {
-    const openedModal = document.querySelector(".popup_visible");
-    if (openedModal) {
-      openedModal.classList.remove("popup_visible");
-      document.removeEventListener("keyup", handleEscapeClose);
-    }
-  }
-}
-
 addTodoButton.addEventListener("click", () => {
   addTodoPopup.open();
-  document.addEventListener("keyup", handleEscapeClose);
 });
 
 addTodoPopup.setEventListeners();
